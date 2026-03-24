@@ -1,0 +1,63 @@
+
+.register-container {
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  border-radius: 12px;
+  padding: 30px !important;   
+  border: 1px solid #ddd;
+  margin: 40px auto;          
+  margin-bottom: 40px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+.register-header {text-align: center;margin-bottom: 20px}
+.register-header h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #222;}
+.row { margin-bottom: 16px;}
+.row label {font-size: 14px;font-weight: 600;margin-bottom: 5px;}
+.row input, .row textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  font-size: 15px;
+  outline: none;}
+.row input:focus, .row textarea:focus {border-color: #137fec;box-shadow: 0 0 4px rgba(19, 127, 236, 0.3);}
+.role-options {display: flex;width: 55.4%;margin-top: 8px;margin-left: 0;  }
+.role-option {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  cursor: pointer;
+}
+.role-option {cursor: pointer;}
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  background: #137fec;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.register-btn:hover {background: #0d6fd1;}
+.msg {
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-bottom: 14px;}
+.msg.success {
+  background: #d4f8d4;
+  color: #067a06;
+  border: 1px solid #73d773;}
+.msg.error { background: #ffd7d7;color: #b30000;border: 1px solid #ff8a8a;}

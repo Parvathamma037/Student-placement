@@ -1,0 +1,183 @@
+
+.adminPage-layout {display: flex;min-height: calc(100vh - 100px);}
+.adminPage-sidebar {
+  width: 220px;
+  background:#6cf9c1;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid #0679a1;
+  position: fixed;
+  left: 0;
+  height: calc(95.2vh - 100px);
+  overflow-y: auto;
+  z-index: 99;
+}
+.adminPage-sidebar button {
+  background: none;
+  border: none;
+  padding: 14px 20px;
+  margin: 3px 10px;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+.adminPage-sidebar button:hover {background: rgba(255, 255, 255, 0.2);}
+.adminPage-sidebar .active {
+  background: white;
+  color: #0679a1;
+  font-weight: bold;
+}
+.adminPage-content {
+  flex: 1;
+  padding: 30px 40px;
+  margin-left: 240px; 
+  margin-top: 20px;
+  overflow-y: auto;
+}
+.adminPage-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+.adminPage-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+.adminPage-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.2s ease;
+}
+.adminPage-card:hover {transform: translateY(-4px);}
+.adminPage-card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333;
+}
+.adminPage-card p {
+  font-size: 30px;
+  margin: 0;
+  color: #0679a1;
+  font-weight: bold;
+}
+.adminPage-table {
+  width: 80%;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+.adminPage-table th,
+.adminPage-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.adminPage-table th {background: #f831af;color: white;font-size: 16px;}
+.adminPage-table tr:hover {background: rgba(0, 0, 0, 0.05);}
+.adminPage-approveBtn,
+.adminPage-editBtn,
+.adminPage-deleteBtn {
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  transition: 0.2s ease;
+}
+.adminPage-approveBtn {background: #28a745;}
+.adminPage-approveBtn:hover {background: #1e7e34;}
+.adminPage-editBtn {background: #ffc107;color: black;}
+.adminPage-editBtn:hover {background: #e0a800;}
+.adminPage-deleteBtn {background: #dc3545;}
+.adminPage-deleteBtn:hover {background: #c82333;}
+.adminPage-formBox {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.adminPage-form {display: flex;flex-wrap: wrap;gap: 15px;}
+.adminPage-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px;
+  border: 2px solid #0679a1;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.adminPage-form button {
+  padding: 10px 22px;
+  background: #0aa1dd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+.adminPage-form button:hover {background: #0679a1;}
+.cancel-btn {background: gray !important;color: white !important;}
+.adminPage-content::-webkit-scrollbar {width: 8px;}
+.adminPage-content::-webkit-scrollbar-thumb {background: #0679a1;border-radius: 10px;}
+.warning-box {
+  background: #ffe6e6;
+  padding: 20px;
+  border-left: 6px solid red;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.no-warning {
+  padding: 15px;
+  background: #e1ffe1;
+  border-left: 6px solid green;
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+/* ASSIGNMENT FORM */
+.assignment-form {
+  width: 60%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.assignment-form .form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.assignment-form input,
+.assignment-form textarea ,select{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fafafa;
+}
+#center{text-align: center;}
+.upload-btn {
+  width: 150px;
+  align-self: center;
+}

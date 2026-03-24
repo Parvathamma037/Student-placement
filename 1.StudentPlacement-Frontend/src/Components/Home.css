@@ -1,0 +1,28 @@
+#home-head{
+    margin-top: 4rem;
+    text-align: center;
+  background-clip: text;}
+#para-div1{ width:70%;margin: 5rem auto;text-align: center;}
+#para-div1 p{padding-bottom: 10px;}
+#info-h3{padding-top: 4rem;}
+#info-ul{margin-right: 2rem ;}
+#info-ul li{padding-top: 1rem;}
+footer{
+  text-align: center;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  background:
+    radial-gradient(circle at top left, #acfadb, transparent 60%),
+    linear-gradient(120deg, #f6d365, #98bcfb);
+  position: fixed;
+  bottom:0;
+  width: 100%;}
+main {
+  position: relative;
+  overflow: hidden;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 95px);
+background: linear-gradient(
+  rgba(0, 0, 0, 0.5),
+  rgba(0, 0, 0, 0));}

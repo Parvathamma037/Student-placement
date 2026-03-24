@@ -1,0 +1,104 @@
+create database webdb4;
+use webdb4;
+CREATE TABLE users1 (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    mobile VARCHAR(15) NOT NULL UNIQUE,
+    address VARCHAR(255),
+    role ENUM('teacher','student','parent') NOT NULL,
+    approved TINYINT(1) DEFAULT 0,
+    is_admin TINYINT(1) DEFAULT 0
+);
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    FOREIGN KEY (student_id) REFERENCES users1(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE parents (
+    parent_id INT PRIMARY KEY,
+    FOREIGN KEY (parent_id) REFERENCES users1(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE parent_student (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    parent_id INT,
+    student_id INT,
+    FOREIGN KEY (parent_id) REFERENCES parents(parent_id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+);
+
+CREATE TABLE assignments (
+    assignment_id INT AUTO_INCREMENT PRIMARY KEY,
+    teacher_id INT,
+    title VARCHAR(150) NOT NULL,
+    description TEXT,
+    file_path VARCHAR(255),
+    deadline DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (teacher_id) REFERENCES users1(user_id) ON DELETE SET NULL
+);
+
+CREATE TABLE submissions (
+    submission_id INT AUTO_INCREMENT PRIMARY KEY,
+    assignment_id INT,
+    student_id INT,
+    file_path VARCHAR(255),
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('submitted','late') DEFAULT 'submitted',
+    FOREIGN KEY (assignment_id) REFERENCES assignments(assignment_id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+);
+
+CREATE TABLE grades (
+    grade_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    assignment_id INT,
+    marks INT,
+    feedback TEXT,
+    graded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
+    FOREIGN KEY (assignment_id) REFERENCES assignments(assignment_id) ON DELETE CASCADE
+);
+
+CREATE TABLE attendance (
+    attendance_id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    date DATE,
+    status ENUM('present','absent') NOT NULL,
+    marked_by INT,
+    FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE,
+    FOREIGN KEY (marked_by) REFERENCES users1(user_id) ON DELETE SET NULL
+);
+CREATE TABLE mcq_questions (
+    mcq_id INT AUTO_INCREMENT PRIMARY KEY,
+    teacher_id INT,
+    question TEXT NOT NULL,
+    option_a VARCHAR(255) NOT NULL,
+    option_b VARCHAR(255) NOT NULL,
+    option_c VARCHAR(255) NOT NULL,
+    option_d VARCHAR(255) NOT NULL,
+    correct_answer ENUM('A','B','C','D') NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (teacher_id) REFERENCES users1(user_id) ON DELETE SET NULL
+);
+CREATE TABLE mcq_answers (
+    answer_id INT AUTO_INCREMENT PRIMARY KEY,
+    mcq_id INT,
+    student_id INT,
+    selected_answer ENUM('A','B','C','D'),
+    is_correct TINYINT(1),
+    answered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (mcq_id) REFERENCES mcq_questions(mcq_id) ON DELETE CASCADE,
+    FOREIGN KEY (student_id) REFERENCES students(student_id) ON DELETE CASCADE
+);
+
+Select * from users1;
+Select * from students;
+Select * from parents;
+Select * from assignments;
+Select * from grades ;
+Select * from attendance ;
+Select * from mcq_answers;
